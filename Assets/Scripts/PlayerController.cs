@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour{
     public Text countText;
     public Text winText;
     private Rigidbody rb;
-    private int count;
+    static int count;
     void Start(){
         rb = GetComponent<Rigidbody>();
         count = 0;
@@ -27,8 +27,11 @@ public class PlayerController : MonoBehaviour{
     void OnTriggerEnter(Collider other){
         if (other.gameObject.CompareTag ("PickUp")){
             other.gameObject.SetActive (false);
+            
+            
             count = count + 1;
             SetCountText();
+
         }
     }
     
